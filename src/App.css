@@ -1,5 +1,15 @@
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('./assets/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf');
+
+
+}
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: #21092f;
+  font-family: 'Space Grotesk';
+  font-weight: 500;
 }
