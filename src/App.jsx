@@ -2,37 +2,68 @@ import { useState } from 'react'
 import Card from './components/Card/Card'
 
 import './App.css'
+import Form from './components/Form/Form'
 
 function App() {
 
-  // const [number, setNumber] = useState(0)
+  const [number, setNumber] = useState('0000 0000 0000 0000')
+  const [name, setName] = useState('Jane Appleseed')
+  const [month, setMonth] = useState('00')
+  const [year, setYear] = useState ('00')
+  const [cvv, setCvv] = useState ('123')
+
+  const handleName = (data)=>{
+    if(data == ''){
+      setName('Jane Appleseed')
+    } else {
+      setName(data)
+    }
+  }
+
+  const handleNumber = (data)=>{
+    if(data == ''){
+      setNumber('0000 0000 0000 0000')
+    } else {
+      setNumber(data)
+    }
+    
+  }
+
+  const handleMonth = (data)=>{
+    if(data == ''){
+      setMonth('00')
+    } else {
+      setMonth(data)
+    }
+    
+  }
+
+  const handleYear = (data)=>{
+    if(data == ''){
+      setYear('00')
+    } else {
+      setYear(data)
+    }
+    
+  }
+
+  const handleCvv = (data)=>{
+    if(data == ''){
+      setName('123')
+    } else {
+      setCvv(data)
+    }
+    
+  }
+
 
   return (
     <div className="App">
 
-      <Card/>
+      <Card number={number} name={name} month={month} year={year} cvv={cvv}/>
 
-
-      {/* 0000 0000 0000 0000
-  Jane Appleseed
-  00/00
-
-  000
-
-  Cardholder Name
-  e.g. Jane Appleseed
-
-  Card Number
-  e.g. 1234 5678 9123 0000
-
-  Exp. Date (MM/YY)
-  MM
-  YY
-
-  CVC
-  e.g. 123
-
-  Confirm */}
+      <Form handleName={{handleName}} handleNumber={{handleNumber}} handleMonth={{handleMonth}} handleYear={{handleYear}} handleCvv={{handleCvv}}/>
+  
 
       {/* <!-- Completed state start --> */}
       {/* 

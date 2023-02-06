@@ -19,8 +19,8 @@
 
 .Card .behind_card{
     background-image: url('../../assets/img/bg-card-back.png');
-    width: 250px;
-    height: 400px;
+    width: 280px;
+    height: 140px;
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
@@ -30,8 +30,8 @@
 
 .Card .behind_card .cvv{
     position: relative;
-    top: 15%;
-    left: 75%;
+    top: 43%;
+    left: 71%;
     color: #fff;
     letter-spacing: 2px;
 }
@@ -39,12 +39,12 @@
 .Card .front_card{
     background-image: url('../../assets/img/bg-card-front.png');
     z-index: 99;
-    width: 250px;
-    height: 400px;
+    width: 260px;
+    height: 140px;
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    top: 55%;
+    top: 58%;
     left: 0%;
     padding: 20px 23px;
     color: #fff;
