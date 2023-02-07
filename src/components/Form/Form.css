@@ -58,6 +58,7 @@
     background-color: #21092f;
     color: #fff;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .error1{
@@ -65,7 +66,7 @@
     color: #ff5252;
     display: block;
     margin: 5px 0;
-    display: none;
+    /* display: none; */
 }
 
 .error_input{

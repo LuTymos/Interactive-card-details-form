@@ -10,7 +10,7 @@ function App() {
   const [name, setName] = useState('Jane Appleseed')
   const [month, setMonth] = useState('00')
   const [year, setYear] = useState ('00')
-  const [cvv, setCvv] = useState ('123')
+  const [cvv, setCvv] = useState (123)
 
   const handleName = (data)=>{
     if(data == ''){
@@ -49,7 +49,7 @@ function App() {
 
   const handleCvv = (data)=>{
     if(data == ''){
-      setName('123')
+      setCvv('123')
     } else {
       setCvv(data)
     }
