@@ -14,9 +14,10 @@ export default function Form(props) {
     const [emptyNumber, setEmptyNumber] = useState(true)
     const [emptyMonth, setEmptyMonth] = useState(true)
     const [emptyYear, setEmptyYear] = useState(true)
-    const [emptyYearMonth, setEmptyYearMonth] = useState(true)
     const [emptyCvv, setEmptyCvv] = useState(true)
+    
     const [invalid, setInvalid] = useState(true)
+    const [style, setStyle] = useState(true)
 
     const changeName = (e) => {
         if (e.target.value == '') {
@@ -76,7 +77,27 @@ export default function Form(props) {
     }
 
     const submitAction = (e)=>{
-        e.preventDefaul()
+        e.preventDefault()
+        const name = document.getElementById('name')
+        const cardNumber = document.getElementById('card_number')
+        const month = document.getElementById('month')
+        const year = document.getElementById('year')
+        const cvv = document.getElementById('cvc')
+
+        if(name.value !== '' && cardNumber.value !== '' && month.value !== '' && year.value !== '' && cvv.value !== ''){
+            setStyle(!style)
+        }else{
+            if(name.value === '' )setEmptyName(false) 
+            if(cardNumber.value === '' )setEmptyNumber(false)
+            if(month.value === '' )setEmptyMonth(false)
+            if(year.value === '' )setEmptyYear(false)
+            if(cvv.value === '' )setEmptyCvv(false)
+            alert('Os campos não podem estar vazios')
+        }
+
+
+
+        
     }
 
 
@@ -85,11 +106,11 @@ export default function Form(props) {
     return (
         <div className="Form">
 
-            <form action="">
+            <form action="" className={style == false ? 'display_none' : ''}>
 
                 <div className="input_name">
                     <label htmlFor="name">cardholder name</label>
-                    <input maxLength='18' type="text" onChange={(e) => { changeName(e) }}
+                    <input maxLength='18' id='name' type="text" onChange={(e) => { changeName(e) }}
                         className={emptyName == false ? 'error_input' : ''} placeholder='e.g. Jane Appleseed' />
                     {emptyName == false ? <span className="error1">Can't be blank</span> : ''}
 
@@ -99,7 +120,8 @@ export default function Form(props) {
                     <label htmlFor="card_number">card number</label>
                     <InputMask
                         onChange={(e) => { changeNumber(e) }}
-                        className={emptyNumber == false ? 'error_input input' : 'input'} id='card_number'
+                        className={emptyNumber == false ? 'error_input input' : 'input'} 
+                        id='card_number'
                         mask="9999 9999 9999 9999"
                         maskChar=''
                         placeholder="e.g. 1234 5678 9123 0000"
@@ -114,6 +136,7 @@ export default function Form(props) {
                             onChange={(e) => { changeMonth(e) }}
                             className={!emptyMonth || invalid == false ? 'error_input input' : 'input'}
                             mask="99"
+                            id='month'
                             maskChar=''
                             placeholder='MM'
                         />
@@ -121,6 +144,7 @@ export default function Form(props) {
                             onChange={(e) => { changeYear(e) }}
                             className={!emptyYear || invalid == false ? 'error_input input' : 'input'}
                             mask="99"
+                            id='year'
                             maskChar=''
                             placeholder='YY'
                         />
@@ -131,7 +155,8 @@ export default function Form(props) {
                         <label htmlFor="cvc">cvc</label>
                         <InputMask
                             onChange={(e) => { changeCvv(e) }}
-                            className={emptyCvv == false ? 'error_input input' : 'input'} id='cvc'
+                            className={emptyCvv == false ? 'error_input input' : 'input'} 
+                            id='cvc'
                             mask="999"
                             maskChar=''
                             placeholder='e.g. 123'
@@ -141,6 +166,15 @@ export default function Form(props) {
                 </div>
                 <button type="submit" onClick={(e)=>{submitAction(e)}} className='confirm'>Confirm</button>
             </form>
+
+            <div className={style === true ? 'modal_submit display_none' : 'modal_submit'}>
+                <img src="src\assets\img\icon-complete.svg" alt="" />
+
+                <h2>Thank You!</h2>
+                <p>We've added your card details</p>
+
+                <button onClick={(e)=>{submitAction(e)}}>Continue</button>
+            </div>
         </div>
     )
 }

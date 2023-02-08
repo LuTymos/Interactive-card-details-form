@@ -3,6 +3,7 @@
 }
 
 .Form form{
+    /* display: none; */
     max-width: 480px;
     width: 100%;
     min-width: 250px;
@@ -73,3 +74,46 @@
     border: 1px solid #ff5252;
     color: #ff5252;
 }
+
+.display_none{
+    display: none;
+}
+
+.modal_submit{
+    padding: 30px 10px;
+    width: 100%;
+    min-width: 250px;
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.modal_submit h2{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 15px 0;
+}
+
+.modal_submit p{
+    margin-bottom: 20px;
+    color: #8e8593;
+}
+
+.modal_submit button{
+    width: 100%;
+    margin-top: 15px;
+    height: 40px;
+    border: none;
+    background-color: #21092f;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 1024px) {
+    .Form{
+      
+        width: 50%;
+  
+    }
+  }
